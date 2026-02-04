@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список людей</title>
+    <style>
+        /* Немного простых стилей, чтобы таблица выглядела аккуратно */
+        table { width: 50%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2 f2 f2; }
+    </style>
+</head>
+<body>
+
+    <h1>Список зарегистрированных персон</h1>
+
+    {% if persons %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Имя / Данные</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for person in persons %}
+                <tr>
+                    <td>{{ person.id }}</td>
+                    <td>{{ person }}</td> 
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>В базе данных пока нет ни одной записи.</p>
+    {% endif %}
+
+</body>
+</html>
